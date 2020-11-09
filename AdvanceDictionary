@@ -1,0 +1,28 @@
+import random
+print("GRADE & QUALITY NUMERAL POINTS:")
+print("Course ....... Credits ... Value Per Course")
+gradePoints ={"A":4,"B":3,"C":2,"D":1,"F":0} 
+coureList = ["CTS 161", "Mat144","ENG201","PSY 101", "HIS 101"] 
+gradeList = ["A","B","C","D","F"] 
+creditList = [3,4] 
+totalCredit = 0 
+qualityPoints = 0
+# produce a grade point average
+#random.choice(gradeList) -> A B C D F
+#gradePoints[random.choice(sequence)] - > gradePoints["A"] ->4/3/2/1/0
+course =random.sample(coureList,5)
+for i in range (5):
+    letter = random.choice(gradeList)
+    gPoints = gradePoints[letter]
+    # credit hours
+    creditHours =  random.choice(creditList)
+    valuerPercourse = (creditHours * gPoints)
+    print(course[i] , ".........." + str(creditHours) +" "+letter+" (" + str(gPoints) +") "+ str(valuerPercourse))
+    totalCredit += creditHours
+    qualityPoints += valuerPercourse
+#print out the loop
+print("Total Credits taken: ",totalCredit)
+print("Total quality points earned: ",qualityPoints)
+#GPA
+gpa =  qualityPoints/ totalCredit
+print(qualityPoints , " divided by ", totalCredit ," results in a ", round(gpa,2), "grade")
