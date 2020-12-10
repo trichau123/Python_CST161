@@ -1,0 +1,31 @@
+while(True):
+  a = int(input("Enter number 1: "))
+  b = int(input("Enter number 2: "))
+ 
+
+  def LCM (a,b):
+    if a > b :
+      greater = a
+    else:
+        greater = b
+ 
+    while (True):
+      if((greater % a == 0 ) and (greater % b == 0 )):
+        lcm = greater
+        break
+      greater += 1
+    return lcm
+  LCM (a,b)
+  print("LCM is ", LCM(a,b))
+ 
+  def GCF (a,b):
+    gcf = 1
+    if a % b == 0:
+      return b
+    for k in range(int(b / 2), 0 ,-1):
+      if a % k ==  0 and b % k == 0:
+        gcf = k
+        break
+    return gcf
+  print("GCF is ",GCF(a,b))
+ 
