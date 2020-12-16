@@ -1,0 +1,21 @@
+import csv
+a = []
+with open('trans.csv','r')as csvfile:
+    trans=csv.reader(csvfile,dialect='excel')
+
+    for l in trans:
+        a.append(l)
+
+b = []
+with open('Custs.csv','r') as csvfile:
+     
+    Custs=csv.reader(csvfile,dialect='excel')
+    for k in Custs: # k [acc, fir, last, balance]
+        b.append(k)
+
+print("Acct No \t\t First\t\t Last\t\t trans  \t\t Amount \t\t  Old Ban \t\t NewBal")
+for j in range(1,len(b)):
+    if int(a[j][1]) < 0:
+        print(b[j][0],"\t\t",b[j][1],"\t\t",b[j][2],"\t\t withdrawal", a[j][1],"\t\t",b[j][3],"\t\t",int(a[j][1])+int(b[j][3]))
+    else:
+        print(b[j][0],"\t\t",b[j][1],"\t\t",b[j][2],"\t\t deposit", a[j][1],"\t\t",b[j][3],"\t\t",int(a[j][1])+int(b[j][3]))
